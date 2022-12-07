@@ -24,7 +24,7 @@ final class DummyStemmer extends InternalStemmer {
 
   @Override
   Collection<Language> languages() {
-    return collection("ja");
+    return collection("ja", "iw", "he");
   }
 
   @Override

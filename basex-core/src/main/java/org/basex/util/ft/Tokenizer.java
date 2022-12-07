@@ -2,6 +2,8 @@ package org.basex.util.ft;
 
 import java.util.*;
 
+import org.basex.util.*;
+
 /**
  * Abstract tokenizer.
  *
@@ -21,6 +23,8 @@ public abstract class Tokenizer extends LanguageImpl {
   static {
     IMPL.add(new WesternTokenizer(null));
     if(JapaneseTokenizer.available()) IMPL.add(new JapaneseTokenizer(null));
+    final String hebrew = "org.basex.util.ft.HebrewTokenizer";
+    if(Reflect.available(hebrew)) IMPL.add((Tokenizer) Reflect.get(Reflect.find(hebrew)));
     Collections.sort(IMPL);
   }
 

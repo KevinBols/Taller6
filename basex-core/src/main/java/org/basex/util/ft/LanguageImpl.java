@@ -28,13 +28,15 @@ abstract class LanguageImpl extends FTIterator implements Comparable<LanguageImp
 
   /**
    * Creates a collection with the specified language.
-   * @param ln language
+   * @param langs languages
    * @return collection
    */
-  static Collection<Language> collection(final String ln) {
+  static Collection<Language> collection(final String... langs) {
     final HashSet<Language> coll = new HashSet<>();
-    final Language lang = Language.get(ln);
-    if(lang != null) coll.add(lang);
+    for(final String lang : langs) {
+      final Language l = Language.get(lang);
+      if(l != null) coll.add(l);
+    }
     return coll;
   }
 
